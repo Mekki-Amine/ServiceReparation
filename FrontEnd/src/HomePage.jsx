@@ -250,9 +250,6 @@ const HomePage = () => {
                 "Très professionnel, diagnostic rapide et réparation au top.
                 Merci !"
               </p>
-              <p className="text-sm text-gray-500 font-semibold">
-                - Myrepartout
-              </p>
             </Card>
             <Card hover>
               <div className="flex items-center mb-3">
@@ -262,9 +259,6 @@ const HomePage = () => {
                 "Service rapide et efficace ! Mon mixeur est comme neuf. Je
                 recommande vivement !"
               </p>
-              <p className="text-sm text-gray-500 font-semibold">
-                - Myrepartout
-              </p>
             </Card>
             <Card hover>
               <div className="flex items-center mb-3">
@@ -273,9 +267,6 @@ const HomePage = () => {
               <p className="text-gray-700 mb-3 italic">
                 "Intervention rapide et sans surprise. Mon robot culinaire est
                 sauvé !"
-              </p>
-              <p className="text-sm text-gray-500 font-semibold">
-                - Myrepartout
               </p>
             </Card>
           </div>

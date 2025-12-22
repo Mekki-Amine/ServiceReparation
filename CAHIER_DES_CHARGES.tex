@@ -1,0 +1,519 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+\geometry{margin=2.5cm}
+
+\title{Cahier des charges}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Intitulé du projet} & \textbf{Fixer - Plateforme de Gestion de Services de Réparation d'Électroménagers} \\
+\hline
+\textbf{Réalisé par} & [VOTRE NOM ET PRÉNOM] \\
+\hline
+\textbf{Entreprise d'accueil} & \textbf{CCA} \\
+\hline
+\textbf{Encadrant Entreprise} & \textbf{Kais Elech - Chef de projet technique} \\
+\hline
+\textbf{Encadrant SESAME} & [NOM DE VOTRE ENCADRANT UNIVERSITAIRE] \\
+\hline
+\end{tabularx}
+\end{center}
+
+\vspace{1cm}
+
+\tableofcontents
+\newpage
+
+\section{Contexte et définition du problème}
+
+Dans un contexte où la digitalisation transforme profondément le secteur des services, les plateformes web de mise en relation entre clients et prestataires de services connaissent un essor considérable. L'émergence des applications web transactionnelles et des services en ligne traduit un besoin croissant d'autonomie, de rapidité et de transparence dans la gestion des services de réparation d'électroménagers.
+
+Actuellement, les particuliers et les professionnels rencontrent plusieurs difficultés lorsqu'ils souhaitent faire réparer leurs appareils électroménagers :
+
+\begin{itemize}
+\item \textbf{Manque de visibilité :} Les réparateurs ont du mal à se faire connaître et à trouver des clients.
+\item \textbf{Difficulté de mise en relation :} Les clients ne savent pas où trouver des réparateurs compétents et fiables près de chez eux.
+\item \textbf{Absence de centralisation :} Les informations sur les services de réparation sont dispersées et difficiles à consulter.
+\item \textbf{Manque de transparence :} Absence d'informations claires sur les prix, les délais et la qualité des services.
+\item \textbf{Gestion manuelle :} Les réparateurs gèrent leurs demandes de manière manuelle, ce qui est chronophage et source d'erreurs.
+\end{itemize}
+
+\textbf{Problématique :} \\
+Il existe un besoin réel de créer une plateforme web moderne qui facilite la mise en relation entre les clients ayant besoin de services de réparation et les réparateurs professionnels, tout en offrant une expérience utilisateur fluide, sécurisée et intuitive.
+
+\section{Objectif de projet}
+
+L'objectif principal de ce projet est de développer une \textbf{plateforme web complète de gestion de services de réparation d'électroménagers} permettant :
+
+\begin{enumerate}
+\item \textbf{Aux clients :}
+   \begin{itemize}
+   \item De publier des demandes de réparation avec description détaillée
+   \item De consulter un catalogue de services et de publications vérifiées
+   \item De communiquer directement avec les réparateurs via un système de messagerie
+   \item De gérer un panier d'achat pour les services
+   \item De recevoir des notifications en temps réel
+   \end{itemize}
+
+\item \textbf{Aux réparateurs :}
+   \begin{itemize}
+   \item De publier leurs services et compétences
+   \item De consulter les demandes de réparation
+   \item De communiquer avec les clients
+   \item De gérer leur profil et leurs publications
+   \end{itemize}
+
+\item \textbf{Aux administrateurs :}
+   \begin{itemize}
+   \item De valider ou refuser les publications
+   \item De gérer les utilisateurs et leurs rôles
+   \item De superviser l'ensemble de la plateforme
+   \item De consulter les statistiques et rapports
+   \end{itemize}
+\end{enumerate}
+
+\textbf{Objectifs secondaires :}
+\begin{itemize}
+\item Mettre en place une architecture logicielle robuste et évolutive
+\item Assurer la sécurité des données et des transactions
+\item Offrir une interface utilisateur moderne et responsive
+\item Garantir une bonne performance et une disponibilité élevée
+\end{itemize}
+
+\section{Acteurs}
+
+Les acteurs du système sont les suivants :
+
+\begin{enumerate}
+\item \textbf{Client (Utilisateur standard)} \\
+   Utilisateur non authentifié ou authentifié ayant le rôle "CLIENT". Il peut consulter le catalogue, publier des demandes, communiquer avec les réparateurs, gérer un panier d'achat.
+
+\item \textbf{Administrateur} \\
+   Utilisateur authentifié ayant le rôle "ADMIN". Il a accès à toutes les fonctionnalités et peut gérer l'ensemble de la plateforme (publications, utilisateurs, messages).
+
+\item \textbf{Système} \\
+   Entité technique qui gère l'authentification, les notifications, la base de données, et les services backend.
+\end{enumerate}
+
+\section{Les actions associées à chaque acteur}
+
+\subsection{Actions du Client}
+
+\begin{itemize}
+\item \textbf{Authentification :}
+   \begin{itemize}
+   \item S'inscrire sur la plateforme
+   \item Se connecter / Se déconnecter
+   \item Gérer son profil (modifier informations, photo de profil)
+   \end{itemize}
+
+\item \textbf{Consultation :}
+   \begin{itemize}
+   \item Consulter le catalogue de publications vérifiées
+   \item Rechercher des services par mots-clés
+   \item Filtrer les publications (type, prix, statut)
+   \item Consulter les détails d'une publication
+   \end{itemize}
+
+\item \textbf{Publication :}
+   \begin{itemize}
+   \item Publier une demande de réparation
+   \item Publier une annonce d'achat/vente/échange
+   \item Modifier ses propres publications
+   \item Supprimer ses propres publications
+   \item Uploader des images/documents pour les publications
+   \end{itemize}
+
+\item \textbf{Communication :}
+   \begin{itemize}
+   \item Envoyer des messages à d'autres utilisateurs
+   \item Recevoir et consulter les messages
+   \item Partager sa localisation dans les messages
+   \end{itemize}
+
+\item \textbf{Panier et commandes :}
+   \begin{itemize}
+   \item Ajouter des services au panier
+   \item Consulter le panier
+   \item Modifier les quantités dans le panier
+   \item Effectuer un paiement (simulation)
+   \end{itemize}
+
+\item \textbf{Notifications :}
+   \begin{itemize}
+   \item Recevoir des notifications en temps réel
+   \item Consulter l'historique des notifications
+   \item Marquer les notifications comme lues
+   \end{itemize}
+\end{itemize}
+
+\subsection{Actions de l'Administrateur}
+
+\begin{itemize}
+\item \textbf{Gestion des publications :}
+   \begin{itemize}
+   \item Consulter toutes les publications (vérifiées et non vérifiées)
+   \item Valider une publication pour la mettre au catalogue
+   \item Refuser une publication
+   \item Modifier les informations d'une publication
+   \item Supprimer une publication
+   \item Filtrer les publications par statut, type, utilisateur
+   \end{itemize}
+
+\item \textbf{Gestion des utilisateurs :}
+   \begin{itemize}
+   \item Consulter la liste des utilisateurs
+   \item Modifier les informations d'un utilisateur
+   \item Changer le rôle d'un utilisateur
+   \item Désactiver/Activer un compte utilisateur
+   \end{itemize}
+
+\item \textbf{Gestion des messages :}
+   \begin{itemize}
+   \item Consulter tous les messages
+   \item Supprimer des messages inappropriés
+   \item Modérer les conversations
+   \end{itemize}
+
+\item \textbf{Statistiques :}
+   \begin{itemize}
+   \item Consulter les statistiques de la plateforme
+   \item Générer des rapports d'activité
+   \end{itemize}
+\end{itemize}
+
+\subsection{Actions du Système}
+
+\begin{itemize}
+\item Authentifier les utilisateurs et générer des tokens JWT
+\item Valider les données saisies
+\item Gérer la persistance des données en base
+\item Envoyer des notifications automatiques
+\item Gérer les fichiers uploadés (images, documents)
+\item Assurer la sécurité des communications
+\end{itemize}
+
+\section{Choix de technologie}
+
+\subsection{Frontend}
+
+\begin{itemize}
+\item \textbf{React.js 18} : Framework JavaScript moderne pour créer des interfaces utilisateur interactives et réactives
+\item \textbf{React Router v6} : Bibliothèque de routage pour la navigation entre les pages
+\item \textbf{Tailwind CSS} : Framework CSS utility-first pour un design moderne et responsive
+\item \textbf{Axios} : Bibliothèque HTTP pour les appels API
+\item \textbf{Context API} : Gestion de l'état global de l'application
+\item \textbf{Vite} : Outil de build moderne et rapide
+\end{itemize}
+
+\subsection{Backend}
+
+\begin{itemize}
+\item \textbf{Spring Boot 3.4.3} : Framework Java pour développer des applications backend robustes
+\item \textbf{Spring Security} : Framework de sécurité pour l'authentification et l'autorisation
+\item \textbf{Spring Data JPA} : Abstraction pour l'accès aux données
+\item \textbf{Hibernate} : ORM (Object-Relational Mapping) pour la gestion de la base de données
+\item \textbf{JWT (JSON Web Token)} : Mécanisme d'authentification sécurisé
+\item \textbf{Java 21} : Langage de programmation backend
+\end{itemize}
+
+\subsection{Base de données}
+
+\begin{itemize}
+\item \textbf{MySQL 8.0+} : Système de gestion de base de données relationnelle
+\item \textbf{InnoDB Engine} : Moteur de stockage transactionnel
+\end{itemize}
+
+\subsection{Outils de développement}
+
+\begin{itemize}
+\item \textbf{IntelliJ IDEA} : IDE pour le développement backend
+\item \textbf{Visual Studio Code} : Éditeur pour le développement frontend
+\item \textbf{Postman} : Outil de test des APIs REST
+\item \textbf{MySQL Workbench} : Outil de gestion de base de données
+\item \textbf{Git} : Système de contrôle de version
+\end{itemize}
+
+\section{Modules à développer}
+
+\subsection{Module M1 « Authentification et Gestion des Utilisateurs »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Développement du système d'inscription (formulaire, validation, enregistrement)
+\item Développement du système de connexion (authentification JWT)
+\item Gestion des rôles utilisateurs (CLIENT, ADMIN)
+\item Gestion du profil utilisateur (modification, photo de profil)
+\item Gestion de la déconnexion
+\item Protection des routes selon les rôles
+\end{itemize}
+
+\textbf{Acteurs :} Client, Administrateur, Système
+
+\subsection{Module M2 « Gestion des Publications »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Création de publications (titre, description, type, prix, fichier)
+\item Consultation des publications (liste, détails)
+\item Filtrage et recherche de publications
+\item Modification et suppression de publications
+\item Upload et gestion des fichiers (images, documents)
+\item Validation des publications par l'administrateur
+\end{itemize}
+
+\textbf{Acteurs :} Client, Administrateur, Système
+
+\subsection{Module M3 « Catalogue et Recherche »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Affichage du catalogue de publications vérifiées
+\item Système de recherche par mots-clés
+\item Filtres avancés (type, prix min/max, statut)
+\item Tri des résultats (date, prix, nom)
+\item Affichage responsive des publications
+\item Pagination des résultats
+\end{itemize}
+
+\textbf{Acteurs :} Client, Système
+
+\subsection{Module M4 « Système de Messagerie »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Envoi de messages entre utilisateurs
+\item Réception et affichage des messages
+\item Partage de localisation dans les messages
+\item Notifications en temps réel pour nouveaux messages
+\item Gestion des conversations
+\item Suppression de messages (admin uniquement)
+\end{itemize}
+
+\textbf{Acteurs :} Client, Administrateur, Système
+
+\subsection{Module M5 « Panier d'Achat et Paiement »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Ajout de services au panier
+\item Consultation du panier
+\item Modification des quantités
+\item Suppression d'articles du panier
+\item Calcul du total
+\item Simulation de paiement
+\end{itemize}
+
+\textbf{Acteurs :} Client, Système
+
+\subsection{Module M6 « Système de Notifications »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Génération de notifications automatiques
+\item Affichage des notifications en temps réel
+\item Marquage des notifications comme lues
+\item Historique des notifications
+\item Badge de compteur de notifications non lues
+\end{itemize}
+
+\textbf{Acteurs :} Client, Système
+
+\subsection{Module M7 « Dashboard Administrateur »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Interface d'administration complète
+\item Gestion des publications (validation, refus, modification, suppression)
+\item Gestion des utilisateurs (liste, modification, changement de rôle)
+\item Gestion des messages (consultation, suppression)
+\item Statistiques et rapports
+\item Filtres et recherche avancée
+\end{itemize}
+
+\textbf{Acteurs :} Administrateur, Système
+
+\subsection{Module M8 « Chatbot Intelligent »}
+
+\textbf{Tâches :}
+\begin{itemize}
+\item Interface de chat intégrée
+\item Recherche intelligente dans le catalogue
+\item Suggestions de publications pertinentes
+\item Gestion des synonymes et variantes de recherche
+\item Scoring de pertinence des résultats
+\end{itemize}
+
+\textbf{Acteurs :} Client, Système
+
+\section{Méthodologie de conception adoptée}
+
+\subsection{Approche Agile}
+
+Le développement du projet a été mené selon une \textbf{approche agile} avec les principes suivants :
+
+\begin{itemize}
+\item \textbf{Itérations courtes :} Développement par sprints successifs
+\item \textbf{Adaptabilité :} Possibilité d'ajuster les fonctionnalités selon les retours
+\item \textbf{Collaboration :} Communication régulière avec l'équipe et l'encadrant
+\item \textbf{Livraison incrémentale :} Chaque sprint livre des fonctionnalités opérationnelles
+\end{itemize}
+
+\subsection{Modélisation UML}
+
+Pour la conception, nous avons utilisé le langage de modélisation UML :
+
+\begin{itemize}
+\item \textbf{Diagramme de cas d'utilisation :} Identification des acteurs et des fonctionnalités
+\item \textbf{Diagramme de classes :} Modélisation des entités et de leurs relations
+\item \textbf{Diagramme de séquence :} Modélisation des interactions entre les composants
+\item \textbf{Diagramme d'architecture :} Représentation de l'architecture logicielle et physique
+\end{itemize}
+
+\subsection{Architecture en couches}
+
+L'application suit une \textbf{architecture en 3 couches} :
+
+\begin{enumerate}
+\item \textbf{Couche Présentation :} Interface utilisateur (React.js)
+\item \textbf{Couche Logique Métier :} Traitements et règles métier (Spring Boot)
+\item \textbf{Couche Données :} Persistance des données (MySQL)
+\end{enumerate}
+
+\subsection{Gestion de version}
+
+Utilisation de \textbf{Git} pour :
+\begin{itemize}
+\item Versioning du code source
+\item Gestion des branches (main, develop, feature)
+\item Historique des modifications
+\item Collaboration en équipe
+\end{itemize}
+
+\section{Architecture}
+
+\subsection{Architecture Logicielle}
+
+L'architecture logicielle de l'application suit le modèle \textbf{3-tier (trois couches)} :
+
+\begin{enumerate}
+\item \textbf{Couche Présentation (Frontend)}
+   \begin{itemize}
+   \item Pages React (Login, SignUp, Shop, Publications, Messages, Profile, Admin)
+   \item Composants réutilisables (Button, Card, Input, Chatbot, Logo)
+   \item Context API pour la gestion de l'état global
+   \item Services API (api.js avec Axios)
+   \item Technologies : React 18, React Router v6, Tailwind CSS, Vite
+   \end{itemize}
+
+\item \textbf{Couche Logique Métier (Backend)}
+   \begin{itemize}
+   \item Controllers REST API (AuthController, PubController, UserController, MessageController)
+   \item Services métier (UserImpl, PubImpl, MessageImpl)
+   \item Repositories JPA (UserRepository, PublicationRepository, MessageRepository)
+   \item Configuration sécurité (Spring Security, JWT)
+   \item Technologies : Spring Boot 3.4.3, Spring Security, Spring Data JPA, Hibernate, Java 21
+   \end{itemize}
+
+\item \textbf{Couche Données (Base de données)}
+   \begin{itemize}
+   \item Tables principales : utilisateur, publication, message, notification, cart, cart\_item, comment, recommendation
+   \item Relations : Utilisateur 1→N Publication, Utilisateur 1→N Message, Utilisateur 1→1 Cart, Publication 1→N Comment
+   \item Technologies : MySQL 8.0+, InnoDB Engine, UTF-8 Encoding
+   \end{itemize}
+\end{enumerate}
+
+\subsection{Architecture Physique}
+
+L'architecture physique suit une structure \textbf{client-serveur} :
+
+\begin{itemize}
+\item \textbf{Client léger :} Navigateur web exécutant l'application React
+\item \textbf{Serveur d'application :} Serveur hébergeant le backend Spring Boot (port 9090)
+\item \textbf{Serveur de base de données :} Serveur MySQL (port 3306)
+\end{itemize}
+
+\subsection{Flux de Communication}
+
+\begin{itemize}
+\item \textbf{Frontend → Backend :} Communication via HTTP/REST API (JSON, JWT Token)
+\item \textbf{Backend → Database :} Communication via JPA/Hibernate (ORM, SQL)
+\end{itemize}
+
+\section{Choix technologiques}
+
+\subsection{Justification des choix}
+
+\subsubsection{Frontend : React.js}
+
+\begin{itemize}
+\item \textbf{Popularité et communauté :} Framework très populaire avec une large communauté
+\item \textbf{Performance :} Virtual DOM pour des performances optimales
+\item \textbf{Composants réutilisables :} Architecture modulaire facilitant la maintenance
+\item \textbf{Ecosystème riche :} Nombreuses bibliothèques et outils disponibles
+\item \textbf{Responsive :} Facilite la création d'interfaces adaptatives
+\end{itemize}
+
+\subsubsection{Backend : Spring Boot}
+
+\begin{itemize}
+\item \textbf{Robustesse :} Framework mature et éprouvé pour les applications d'entreprise
+\item \textbf{Sécurité :} Spring Security offre une sécurité intégrée
+\item \textbf{Productivité :} Auto-configuration réduisant le code boilerplate
+\item \textbf{Intégration :} Excellente intégration avec les bases de données et autres services
+\item \textbf{Documentation :} Documentation complète et nombreux tutoriels
+\end{itemize}
+
+\subsubsection{Base de données : MySQL}
+
+\begin{itemize}
+\item \textbf{Fiabilité :} Base de données relationnelle fiable et stable
+\item \textbf{Performance :} Bonnes performances pour les applications web
+\item \textbf{Gratuité :} Open source et gratuit
+\item \textbf{Compatibilité :} Compatible avec Spring Data JPA et Hibernate
+\item \textbf{Communauté :} Large communauté et support
+\end{itemize}
+
+\subsection{Stack technologique complète}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Couche} & \textbf{Technologies} \\
+\hline
+\textbf{Présentation} & React.js 18, React Router v6, Tailwind CSS, Axios, Context API, Vite \\
+\hline
+\textbf{Logique Métier} & Spring Boot 3.4.3, Spring Security, Spring Data JPA, Hibernate, Java 21 \\
+\hline
+\textbf{Données} & MySQL 8.0+, InnoDB Engine \\
+\hline
+\textbf{Sécurité} & JWT (JSON Web Token), BCrypt, Spring Security \\
+\hline
+\textbf{Outils} & IntelliJ IDEA, VS Code, Postman, MySQL Workbench, Git \\
+\hline
+\end{tabularx}
+\end{center}
+
+\vspace{2cm}
+
+\begin{center}
+\textbf{Cahier des charges rempli le :} \underline{\hspace{6cm}}
+\end{center}
+
+\end{document}
+
